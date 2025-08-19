@@ -13,7 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
         then: function() {
             // ✅ Load admin routes manually
-            Route::middleware(['web'])->group(base_path('routes/admin.php'));
+            Route::middleware(['web', 'auth', 'admin_access'])->group(base_path('routes/admin.php'));
         }
     )
     ->withMiddleware(function (Middleware $middleware): void {
