@@ -33,16 +33,52 @@
     <script src="{{ asset('admin/js/color-modes.js') }}"></script>
     <link href="{{ asset('admin/vendors/@coreui/chartjs/css/coreui-chartjs.css') }}" rel="stylesheet" />
 
-    
-    
-
     @yield('page_styles')
 
     @yield('header_scripts')
 </head>
 <body>
-    
+    @include('components.admin.sidebar')
 
+    <div class="wrapper d-flex flex-column min-vh-100">
+        @include('components.admin.header')
+
+        @yield('page_content')
+
+        @include('components.admin.footer')
+    </div>
+
+
+    <!-- CoreUI and necessary plugins-->
+    <script src="{{ asset('admin/vendors/@coreui/coreui/js/coreui.bundle.min.js') }}"></script>
+    <script src="{{ asset('admin/vendors/simplebar/js/simplebar.min.js') }}"></script>
+    <script src="{{ asset('admin/js/jquery.min.js') }}"></script>
+    <script>
+        const header = document.querySelector('header.header');
+
+        document.addEventListener('scroll', () => {
+            if (header) {
+                header.classList.toggle('shadow-sm', document.documentElement.scrollTop > 0);
+            }
+        });
+    </script>
+    <!-- Plugins and scripts required by this view-->
     @yield('footer_scripts')
+    <script src="{{ asset('admin/vendors/@coreui/utils/js/index.js') }}"></script>
+    {{-- <script src="{{ asset('admin/js/main.js') }}"></script> --}}
+
+    <script>
+        $(document).on('click', '.logout', function(e) {
+            e.preventDefault();
+            if ($('#frmLogout').length) {
+                $('#frmLogout')[0].submit();
+            }
+        })
+    </script>
+
+
+    <form id="frmLogout" method="POST" action='{!! route('logout') !!}'>
+        @csrf
+    </form>
 </body>
 </html>
