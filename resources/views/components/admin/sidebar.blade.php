@@ -21,7 +21,58 @@
                 {{-- <span class="badge badge-sm bg-info ms-auto">NEW</span> --}}
             </a>
         </li>
+
+        <li class="nav-title">Components</li>
+        <li class="nav-group {!! Request::is('admin/practice-tools/*') ? ' show' : '' !!}">
+            <a class="nav-link nav-group-toggle {!! Request::is('admin/practice-tools/*') ? ' active ' : '' !!}" href="#">
+                <svg class="nav-icon">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-code"></use>
+                </svg>
+                Code Tools 
+            </a>
+            <ul class="nav-group-items compact">
+                <li class="nav-item">
+                    <a class="nav-link" href="base/accordion.html">
+                        <span class="nav-icon"><span class="nav-icon-bullet"></span></span> 
+                        List
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="base/accordion.html">
+                        <span class="nav-icon"><span class="nav-icon-bullet"></span></span> 
+                        New
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav-group {!! Request::is('admin/practice-questions/*') ? ' show' : '' !!}">
+            <a class="nav-link nav-group-toggle {!! Request::is('admin/practice-questions/*') ? ' active ' : '' !!}" href="#">
+                <svg class="nav-icon">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-equalizer"></use>
+                </svg>
+                Question Set
+            </a>
+            <ul class="nav-group-items compact">
+                <li class="nav-item">
+                    <a class="nav-link" href="base/accordion.html">
+                        <span class="nav-icon"><span class="nav-icon-bullet"></span></span> 
+                        List
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="base/accordion.html">
+                        <span class="nav-icon"><span class="nav-icon-bullet"></span></span> 
+                        New
+                    </a>
+                </li>
+            </ul>
+        </li>
+
         
+
+
+        <li class="nav-title">Admin Operations</li>
         <li class="nav-group {!! Request::is('admin/roles/*') ? ' show' : '' !!}">
             <a class="nav-link nav-group-toggle {!! Request::is('admin/roles/*') ? ' active ' : '' !!}" href="#">
                 <svg class="nav-icon">
