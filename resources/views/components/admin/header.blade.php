@@ -40,4 +40,6 @@
         </ul>
 
     </div>
+
+    @yield('breadcrumbs')
 </header>

@@ -69,7 +69,28 @@
             </ul>
         </li>
 
-        
+        <li class="nav-group {!! Request::is('admin/files/*') ? ' show' : '' !!}">
+            <a class="nav-link nav-group-toggle {!! Request::is('admin/files/*') ? ' active ' : '' !!}" href="#">
+                <svg class="nav-icon">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-file"></use>
+                </svg>
+                Files
+            </a>
+            <ul class="nav-group-items compact">
+                <li class="nav-item">
+                    <a class="nav-link" href="{!! route('admin.files.index') !!}">
+                        <span class="nav-icon"><span class="nav-icon-bullet"></span></span> 
+                        List
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{!! route('admin.files.create') !!}">
+                        <span class="nav-icon"><span class="nav-icon-bullet"></span></span> 
+                        New
+                    </a>
+                </li>
+            </ul>
+        </li>
 
 
         <li class="nav-title">Admin Operations</li>
